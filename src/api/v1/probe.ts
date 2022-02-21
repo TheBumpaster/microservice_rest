@@ -1,12 +1,12 @@
-import { NextFunction, Request, Response } from "express";
+import { NextFunction, Request, RequestHandler, Response } from "express";
 import { RESPONSE_CODE } from '../../config/constants';
 
 
 export default function() {
 
-    const GET = async (request: Request, response: Response, next: NextFunction) => {
+    const GET = async (request: Request, response: Response) => {
 
-        response.status(RESPONSE_CODE.SUCCESS)
+        return response.status(RESPONSE_CODE.SUCCESS)
         .json({ message: "Hello World!" });
     }
 
@@ -33,15 +33,15 @@ export default function() {
         }
     }
 
-    const POST = async (request: Request, response: Response, next: NextFunction) => {
+    const POST = async (request: Request, response: Response ) => {
 
-        response.status(RESPONSE_CODE.SUCCESS)
+        return response.status(RESPONSE_CODE.SUCCESS)
         .json({ message: "Hello World!" });
     }
 
     POST.apiDoc = {
         summary: 'Returns hello world',
-        operationId: 'HelloWorld',
+        operationId: 'HelloWorldPOST',
         tags: [ "System" ],
         responses: {
             200: {

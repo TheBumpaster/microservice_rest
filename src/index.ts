@@ -5,11 +5,11 @@ import Logger from './services/logger';
 import { parse } from 'yaml';
 import { readFileSync } from "fs";
 import { resolve } from "path";
-import { RESPONSE_CODE } from './config/constants';
+import { RESPONSE_CODE, MEMORY_LIMIT } from './config/constants';
 
 const server = express();
 
-server.use(json());
+server.use(json({ limit: MEMORY_LIMIT }));
 
 initialize({
     app: server,
@@ -22,6 +22,9 @@ initialize({
     docsPath: "/api-docs",
     routesGlob: '**/*.{ts,js}',
     routesIndexFileRegExp: /(?:index)?\.[tj]s$/,
+    consumesMiddleware: {
+        'application/json': json({ limit: MEMORY_LIMIT }),
+    }
     
 });
 
@@ -31,7 +34,7 @@ server.use("/docs", swaggerUi.serve, swaggerUi.setup( undefined, {
     }
 }))
 
-server.use(function (err: Error & {status: RESPONSE_CODE}, req: Request, res: Response, next: NextFunction) {
+server.use(function (err: Error & {status: RESPONSE_CODE}, _req: Request, res: Response, _next: NextFunction) {
     res.status(err.status).json(err);
 });
 
