@@ -26,4 +26,8 @@ npm run docker:rebuild # to recreate on changes
 npm run docker:dev:build
 npm run docker:dev:rebuild # in case production build is already running
 
+```
 
+## API Docs
+
+http://localhost:3000/docs
