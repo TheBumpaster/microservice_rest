@@ -59,25 +59,5 @@
     "winston": "^3.6.0",
     "winston-transport": "^4.5.0",
     "yaml": "^1.10.2"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "test-commited"
-    }
-  },
-  "test-commited": {
-    "*.ts": [
-      "npm",
-      "run",
-      "test"
-    ]
-  },
-  "lint-staged": {
-    "*.ts": [
-      "npm",
-      "run",
-      "lint"
-    ]
   }
 }
