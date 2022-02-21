@@ -1,4 +1,4 @@
-import { createLogger, format, transports } from "winston";
+import { createLogger, format } from "winston";
 import Transport, { TransportStreamOptions } from 'winston-transport';
 import { SERVER_NAME } from '../config/constants';
 
@@ -24,7 +24,7 @@ class CustomTransport extends Transport {
         }
 
         return `{${label}} [${level.toUpperCase()}] ${date.toLocaleDateString()} ${date.toLocaleTimeString()} : ${message} ${meta}`;
-    };
+    }
 }
 
 let level = 'info';

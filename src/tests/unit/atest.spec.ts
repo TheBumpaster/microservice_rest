@@ -4,7 +4,7 @@ const expect = chai.expect
 describe("Probe Unit Test", () => {
 
     before( async () => {
-        return new Promise<void>((resolve, reject) => {
+        return new Promise<void>((resolve) => {
 
             resolve();
 

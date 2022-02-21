@@ -11,7 +11,7 @@ describe("Probe REST Service", () => {
 
     before(async () => {
 
-        return new Promise<void>((resolve, reject) => {
+        return new Promise<void>((resolve) => {
 
             resolve();
 
