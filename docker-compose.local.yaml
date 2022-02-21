@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  api:
+    build:
+      args:
+        NODE: development
+    volumes:
+      - ./:/home/node/app
+    command: npm run dev
